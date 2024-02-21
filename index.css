@@ -19,6 +19,7 @@
   width: 100px;
   left: 0;
   bottom: 0;
+  z-index: 0;
 }
 .input-time {
   border: 1px solid #131946;
@@ -63,6 +64,8 @@ h2 {
   line-height: 1.5;
   width: 80%;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 .copy {
   display: none;
