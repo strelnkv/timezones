@@ -42,12 +42,12 @@
 table {
   margin-top: 20px;
   border-collapse: collapse;
-  border: solid black;
+  border: 1px solid black;
 }
 td,
 th {
   padding: 15px;
-  border: solid #131946;
+  border: 1px solid #131946;
 }
 th {
   text-align: left; /* Выравнивание заголовка */
