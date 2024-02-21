@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <img class="image" src="/assets/XOsX.gif" />
+    <div class="container">
+      <div class="set-time">
+        <h2>Выбираем времечко в своем городе:</h2>
+      </div>
+      <table>
+        <tr>
+          <td>Томск</td>
+          <td>
+            <input
+              type="time"
+              class="input-time tomsk"
+              name="Tomsk"
+              value="00:00"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Санкт-Петербург</td>
+          <td>
+            <input
+              type="time"
+              class="input-time spb"
+              name="Spb"
+              value="00:00"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Тбилиси</td>
+          <td>
+            <input
+              type="time"
+              class="input-time tbilisi"
+              name="Tbilisi"
+              value="00:00"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Амстердам</td>
+          <td>
+            <input
+              type="time"
+              class="input-time amster"
+              name="Amsterdam"
+              value="00:00"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Лондон</td>
+          <td>
+            <input
+              type="time"
+              class="input-time london"
+              name="London"
+              value="00:00"
+            />
+          </td>
+        </tr>
+      </table>
+      <button class="button">Жмём!</button>
+      <p class="result"></p>
+      <button class="button copy">Копируем!</button>
+    </div>
+    <script src="/index.js"></script>
+  </body>
+</html>

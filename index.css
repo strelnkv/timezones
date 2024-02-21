@@ -1,0 +1,69 @@
+* {
+  background-color: #fd6014;
+  font-family: "Comfortaa", sans-serif;
+  color: white;
+}
+.container {
+  padding: 30px 20px;
+
+  display: grid;
+  justify-items: center;
+}
+.set-time {
+  display: grid;
+  justify-items: center;
+  row-gap: 10px;
+}
+.image {
+  position: absolute;
+  width: 100px;
+  left: 0;
+  bottom: 0;
+}
+.input-time {
+  border: 1px solid #131946;
+  border-radius: 14px;
+  padding: 5px;
+  text-align: center;
+  justify-self: stretch;
+  cursor: pointer;
+  font-size: medium;
+}
+.button {
+  border: 1px solid white;
+  border-radius: 14px;
+  background-color: white;
+  color: #fd6014;
+  width: 150px;
+  padding: 10px;
+  margin: 20px 20px;
+  cursor: pointer;
+}
+table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: solid black;
+}
+td,
+th {
+  padding: 15px;
+  border: solid #131946;
+}
+th {
+  text-align: left; /* Выравнивание заголовка */
+}
+input[type="time"] {
+  font-family: Arial, sans-serif; /* Шрифт */
+  font-size: 16px; /* Размер шрифта */
+}
+h2 {
+  text-align: center;
+}
+.result {
+  line-height: 1.5;
+  width: 80%;
+  text-align: center;
+}
+.copy {
+  display: none;
+}
