@@ -15,7 +15,7 @@
   row-gap: 10px;
 }
 .image {
-  position: absolute;
+  position: fixed;
   width: 100px;
   left: 0;
   bottom: 0;
