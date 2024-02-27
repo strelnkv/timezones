@@ -5,92 +5,52 @@ const tbilisi = document.querySelector(".tbilisi");
 const amster = document.querySelector(".amster");
 const london = document.querySelector(".london");
 
-function changeNum(array) {
-  if (array[0] > 23) {
-    array[0] = array[0] % 24; // Приводим значение часов к диапазону от 0 до 23
-  } else if (array[0] < 0) {
-    array[0] = (24 + array[0]) % 24; // Обрабатываем отрицательные значения часов
-  }
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] < 10) {
-      array[i] = "0" + array[i];
-    }
-  }
-
-  return array.join(":");
-}
-
 Array.from(timeInput).forEach((el) =>
   el.addEventListener("input", function (evt) {
     //если нажимаем спб
     if (evt.target.name === "Spb") {
-      let input = evt.target.value;
-      let arr = input.split(":");
-      let tomskArr = [Number(arr[0]) + 4, Number(arr[1])];
-      let tbilisiArr = [Number(arr[0]) + 1, Number(arr[1])];
-      let amsterArr = [Number(arr[0]) - 2, Number(arr[1])];
-      let londonArr = [Number(arr[0]) - 3, Number(arr[1])];
+      let input = dayjs.tz(evt.target.value, "HH:mm", "Europe/Moscow");
 
-      tomsk.value = changeNum(tomskArr);
-      tbilisi.value = changeNum(tbilisiArr);
-      amster.value = changeNum(amsterArr);
-      london.value = changeNum(londonArr);
+      tomsk.value = input.tz("Asia/Tomsk").format("HH:mm");
+      tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
+      amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
+      london.value = input.tz("Europe/London").format("HH:mm");
     }
     //если нажимаем томск
     if (evt.target.name === "Tomsk") {
-      let input = evt.target.value;
-      let arr = input.split(":");
-      let spbArr = [Number(arr[0]) - 4, Number(arr[1])];
-      let tbilisiArr = [Number(arr[0]) - 3, Number(arr[1])];
-      let amsterArr = [Number(arr[0]) - 6, Number(arr[1])];
-      let londonArr = [Number(arr[0]) - 7, Number(arr[1])];
+      let input = dayjs(evt.target.value, "HH:mm", "Asia/Tomsk");
 
-      spb.value = changeNum(spbArr);
-      tbilisi.value = changeNum(tbilisiArr);
-      amster.value = changeNum(amsterArr);
-      london.value = changeNum(londonArr);
+      spb.value = input.tz("Europe/Moscow").format("HH:mm");
+      tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
+      amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
+      london.value = input.tz("Europe/London").format("HH:mm");
     }
-
+    //если нажимаем тбилиси
     if (evt.target.name === "Tbilisi") {
-      let input = evt.target.value;
-      let arr = input.split(":");
-      let spbArr = [Number(arr[0]) + 1, Number(arr[1])];
-      let tomskArr = [Number(arr[0]) + 3, Number(arr[1])];
-      let amsterArr = [Number(arr[0]) - 3, Number(arr[1])];
-      let londonArr = [Number(arr[0]) - 4, Number(arr[1])];
+      let input = dayjs(evt.target.value, "HH:mm", "Asia/Tbilisi");
 
-      tomsk.value = changeNum(tomskArr);
-      spb.value = changeNum(spbArr);
-      amster.value = changeNum(amsterArr);
-      london.value = changeNum(londonArr);
+      tomsk.value = input.tz("Asia/Tomsk").format("HH:mm");
+      spb.value = input.tz("Europe/Moscow").format("HH:mm");
+      amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
+      london.value = input.tz("Europe/London").format("HH:mm");
     }
-
+    //если нажимаем амстердам
     if (evt.target.name === "Amsterdam") {
-      let input = evt.target.value;
-      let arr = input.split(":");
-      let spbArr = [Number(arr[0]) + 2, Number(arr[1])];
-      let tomskArr = [Number(arr[0]) + 6, Number(arr[1])];
-      let tbilisiArr = [Number(arr[0]) + 3, Number(arr[1])];
-      let londonArr = [Number(arr[0]) - 1, Number(arr[1])];
+      let input = dayjs.tz(evt.target.value, "HH:mm", "Europe/Amsterdam");
 
-      tomsk.value = changeNum(tomskArr);
-      spb.value = changeNum(spbArr);
-      tbilisi.value = changeNum(tbilisiArr);
-      london.value = changeNum(londonArr);
+      tomsk.value = input.tz("Asia/Tomsk").format("HH:mm");
+      spb.value = input.tz("Europe/Moscow").format("HH:mm");
+      tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
+      london.value = input.tz("Europe/London").format("HH:mm");
     }
 
     if (evt.target.name === "London") {
-      let input = evt.target.value;
-      let arr = input.split(":");
-      let spbArr = [Number(arr[0]) + 3, Number(arr[1])];
-      let tomskArr = [Number(arr[0]) + 7, Number(arr[1])];
-      let tbilisiArr = [Number(arr[0]) + 4, Number(arr[1])];
-      let amsterArr = [Number(arr[0]) + 1, Number(arr[1])];
+      let input = dayjs.tz(evt.target.value, "HH:mm", "Europe/London");
 
-      tomsk.value = changeNum(tomskArr);
-      spb.value = changeNum(spbArr);
-      tbilisi.value = changeNum(tbilisiArr);
-      amster.value = changeNum(amsterArr);
+      tomsk.value = input.tz("Asia/Tomsk").format("HH:mm");
+      spb.value = input.tz("Europe/Moscow").format("HH:mm");
+      tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
+      amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
     }
   })
 );
