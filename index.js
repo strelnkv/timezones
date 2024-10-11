@@ -5,6 +5,19 @@ const tbilisi = document.querySelector(".tbilisi");
 const amster = document.querySelector(".amster");
 const london = document.querySelector(".london");
 
+function setCityTime(citySelector, timezone) {
+  const currentTime = dayjs().tz(timezone).format("HH:mm");
+  citySelector.value = currentTime;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  setCityTime(tomsk, "Asia/Tomsk");
+  setCityTime(spb, "Europe/Moscow");
+  setCityTime(tbilisi, "Asia/Tbilisi");
+  setCityTime(amster, "Europe/Amsterdam");
+  setCityTime(london, "Europe/London");
+});
+
 Array.from(timeInput).forEach((el) =>
   el.addEventListener("input", function (evt) {
     //если нажимаем спб
@@ -60,11 +73,12 @@ const buttonCopy = document.querySelector(".copy");
 const p = document.querySelector(".result");
 
 button.addEventListener("click", function () {
-  let text = `Томск: ${tomsk.value}
-  СПб: ${spb.value};
-  Тбилиси: ${tbilisi.value};
-  Лондон: ${london.value};
-  Амстердам: ${amster.value}.`;
+  let text = `
+  Томск: ${tomsk.value};</br>
+  СПб: ${spb.value};</br>
+  Тбилиси: ${tbilisi.value};</br>
+  Лондон: ${london.value};</br>
+  Амстердам: ${amster.value}.</br>`;
   p.innerHTML = text;
   buttonCopy.style.display = "inline-block";
   buttonCopy.addEventListener("click", function () {
