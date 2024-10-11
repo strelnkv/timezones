@@ -60,10 +60,11 @@ const buttonCopy = document.querySelector(".copy");
 const p = document.querySelector(".result");
 
 button.addEventListener("click", function () {
-  let text = `У Маши в Томске будет ${tomsk.value}, либо в СПб ${spb.value};
-  у Ани в Тбилиси ${tbilisi.value};
-  у Лены в Лондоне ${london.value};
-  у Наки в Амстердаме ${amster.value}.`;
+  let text = `Томск: ${tomsk.value}
+  СПб: ${spb.value};
+  Тбилиси: ${tbilisi.value};
+  Лондон: ${london.value};
+  Амстердам: ${amster.value}.`;
   p.innerHTML = text;
   buttonCopy.style.display = "inline-block";
   buttonCopy.addEventListener("click", function () {
