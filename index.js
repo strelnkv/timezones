@@ -4,6 +4,7 @@ const tomsk = document.querySelector(".tomsk");
 const tbilisi = document.querySelector(".tbilisi");
 const amster = document.querySelector(".amster");
 const london = document.querySelector(".london");
+const berlin = document.querySelector(".berlin");
 
 function setCityTime(citySelector, timezone) {
   const currentTime = dayjs().tz(timezone).format("HH:mm");
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setCityTime(tbilisi, "Asia/Tbilisi");
   setCityTime(amster, "Europe/Amsterdam");
   setCityTime(london, "Europe/London");
+  setCityTime(berlin, "Europe/Berlin");
 });
 
 Array.from(timeInput).forEach((el) =>
@@ -28,6 +30,7 @@ Array.from(timeInput).forEach((el) =>
       tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
       amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
       london.value = input.tz("Europe/London").format("HH:mm");
+      berlin.value = input.tz("Europe/Berlin").format("HH:mm");
     }
     //если нажимаем томск
     if (evt.target.name === "Tomsk") {
@@ -37,6 +40,7 @@ Array.from(timeInput).forEach((el) =>
       tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
       amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
       london.value = input.tz("Europe/London").format("HH:mm");
+      berlin.value = input.tz("Europe/Berlin").format("HH:mm");
     }
     //если нажимаем тбилиси
     if (evt.target.name === "Tbilisi") {
@@ -46,6 +50,7 @@ Array.from(timeInput).forEach((el) =>
       spb.value = input.tz("Europe/Moscow").format("HH:mm");
       amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
       london.value = input.tz("Europe/London").format("HH:mm");
+      berlin.value = input.tz("Europe/Berlin").format("HH:mm");
     }
     //если нажимаем амстердам
     if (evt.target.name === "Amsterdam") {
@@ -55,8 +60,9 @@ Array.from(timeInput).forEach((el) =>
       spb.value = input.tz("Europe/Moscow").format("HH:mm");
       tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
       london.value = input.tz("Europe/London").format("HH:mm");
+      berlin.value = input.tz("Europe/Berlin").format("HH:mm");
     }
-
+    //если нажимаем лондон
     if (evt.target.name === "London") {
       let input = dayjs.tz(evt.target.value, "HH:mm", "Europe/London");
 
@@ -64,6 +70,18 @@ Array.from(timeInput).forEach((el) =>
       spb.value = input.tz("Europe/Moscow").format("HH:mm");
       tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
       amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
+      berlin.value = input.tz("Europe/Berlin").format("HH:mm");
+    }
+
+    //если нажимаем берлин
+    if (evt.target.name === "Berlin") {
+      let input = dayjs.tz(evt.target.value, "HH:mm", "Europe/Berlin");
+
+      tomsk.value = input.tz("Asia/Tomsk").format("HH:mm");
+      spb.value = input.tz("Europe/Moscow").format("HH:mm");
+      tbilisi.value = input.tz("Asia/Tbilisi").format("HH:mm");
+      amster.value = input.tz("Europe/Amsterdam").format("HH:mm");
+      london.value = input.tz("Europe/London").format("HH:mm");
     }
   })
 );
@@ -74,12 +92,13 @@ const p = document.querySelector(".result");
 
 button.addEventListener("click", function () {
   let text = `
-  Томск: ${tomsk.value};</br>
-  СПб: ${spb.value};</br>
-  Тбилиси: ${tbilisi.value};</br>
-  Лондон: ${london.value};</br>
-  Амстердам: ${amster.value}.</br>`;
-  p.innerHTML = text;
+  Томск: ${tomsk.value};
+  СПб: ${spb.value};
+  Тбилиси: ${tbilisi.value};
+  Амстердам: ${amster.value};
+  Берлин: ${berlin.value};
+  Лондон: ${london.value}.`;
+  p.innerHTML = text.replace(/\n/g, "<br>");
   buttonCopy.style.display = "inline-block";
   buttonCopy.addEventListener("click", function () {
     navigator.clipboard
